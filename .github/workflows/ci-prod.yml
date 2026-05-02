@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps --no-audit --no-fund || npm install --legacy-peer-deps --no-audit --no-fund
       - run: npm run lint:html
 
   lint_css:
@@ -26,7 +26,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps --no-audit --no-fund || npm install --legacy-peer-deps --no-audit --no-fund
       - run: npm run lint:css
 
   build_and_docker:
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - run: npm ci
+      - run: npm ci --legacy-peer-deps --no-audit --no-fund || npm install --legacy-peer-deps --no-audit --no-fund
       - run: npm run build
       - uses: docker/login-action@v2
         with:
