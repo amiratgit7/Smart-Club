@@ -20,7 +20,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm ci || npm install
+        run: npm ci --legacy-peer-deps --no-audit --no-fund || npm install --legacy-peer-deps --no-audit --no-fund
 
       - name: Run HTMLHint
         run: npm run lint:html
@@ -39,7 +39,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm ci || npm install
+        run: npm ci --legacy-peer-deps --no-audit --no-fund || npm install --legacy-peer-deps --no-audit --no-fund
 
       - name: Run Stylelint
         run: npm run lint:css
@@ -58,7 +58,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm ci || npm install
+        run: npm ci --legacy-peer-deps --no-audit --no-fund || npm install --legacy-peer-deps --no-audit --no-fund
 
       - name: Build website with Parcel
         run: npm run build
@@ -74,4 +74,4 @@ jobs:
         with:
          context: .
          push: true
-         tags: ${{ secrets.DOCKERHUB_USERNAME }}/digital-uni-dept-website:latest
+         tags: ${{ secrets.DOCKERHUB_USERNAME }}/smart-club:latest
