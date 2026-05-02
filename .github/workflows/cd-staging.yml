@@ -1,0 +1,26 @@
+name: CD Pipeline - QA
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline - Staging/QA"]  # must match CI workflow name
+    branches:
+      - release/**      # any release branch triggers QA
+    types:
+      - completed
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    environment: staging
+
+    steps:
+      - name: Deploy to Render QA
+        run: |
+          if [ -z "${{ secrets.RENDER_CALLBACK_URL }}" ]; then
+            echo "::error::Secret RENDER_CALLBACK_URL is empty or missing!"
+            exit 1
+          fi
+
+          echo "Triggering Render deploy for QA..."
+          curl -X POST ${{ secrets.RENDER_CALLBACK_URL }}
