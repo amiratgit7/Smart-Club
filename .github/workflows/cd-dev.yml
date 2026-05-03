@@ -2,9 +2,9 @@ name: CD Pipeline - Development
 
 on:
   workflow_run:
-    workflows: ["CI Pipeline"]  # must match CI workflow name for develop
+    workflows: ["CI Pipeline"]  # must match CI workflow name for dev
     branches:
-      - develop
+      - dev
     types:
       - completed
 
