@@ -1,37 +1,5 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 50px;
-  background: #111;
-  color: white;
-}
-
-.navbar ul {
-  display: flex;
-  list-style: none;
-}
-
-.navbar ul li {
-  margin-left: 20px;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: bold;
+body {
+  font-family: 'Segoe UI', sans-serif;
 }
 
 /* Hero Section */
@@ -40,94 +8,39 @@
   background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
               url('https://images.unsplash.com/photo-1558611848-73f7eb4001ab');
   background-size: cover;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero h2 {
-  font-size: 48px;
-}
-
-.hero p {
-  margin: 10px 0;
-}
-
-.btn {
-  padding: 10px 20px;
-  background: #ff4d4d;
-  color: white;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-/* Sections */
-.page {
-  padding: 50px;
-  text-align: center;
-}
-
-.features {
-  display: flex;
-  justify-content: space-around;
-  padding: 40px;
+  background-position: center;
 }
 
 /* Cards */
 .card {
-  background: #f4f4f4;
-  padding: 20px;
-  margin: 10px;
+  border: none;
   border-radius: 10px;
-  width: 250px;
   transition: 0.3s;
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-8px);
 }
 
-/* Pricing */
-.pricing {
-  display: flex;
-  justify-content: center;
+/* Navbar active link */
+.nav-link.active {
+  color: #ff4d4d !important;
+  font-weight: bold;
+}
+
+/* Buttons */
+.btn {
+  border-radius: 30px;
 }
 
 /* Form */
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  margin: auto;
+form input, form textarea {
+  border-radius: 8px;
 }
 
-.contact-form input,
-.contact-form textarea {
-  margin: 10px 0;
-  padding: 10px;
-}
-
-.contact-form button {
-  background: #111;
-  color: white;
-  padding: 10px;
-  border: none;
-}
-
-/* Footer */
-footer {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 15px;
-}
-
-/* Responsive */
-@media(max-width: 768px) {
-  .features, .pricing {
-    flex-direction: column;
-    align-items: center;
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 28px;
   }
 }
