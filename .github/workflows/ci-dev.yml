@@ -3,9 +3,9 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - main
-      - dev
-      - feature/*
+      - develop
+      - feature/**
+
 jobs:
   lint_html:
     name: HTMLHint Lint
@@ -20,7 +20,7 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm ci 
+        run: npm ci
 
       - name: Run HTMLHint
         run: npm run lint:html
@@ -39,13 +39,13 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm ci 
+        run: npm ci
 
       - name: Run Stylelint
         run: npm run lint:css
 
   build_and_docker:
-     name: Build + Docker Build & Push
+    name: Build + Docker Build & Push
     runs-on: ubuntu-latest
     needs: lint_css
     steps:
@@ -74,4 +74,4 @@ jobs:
         with:
          context: .
          push: true
-         tags: ${{ secrets.DOCKERHUB_USERNAME }}/smart-club:latest
+         tags: ${{ secrets.DOCKERHUB_USERNAME }}/digital-uni-dept-website:latest
