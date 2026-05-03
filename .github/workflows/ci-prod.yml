@@ -48,4 +48,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/digital-uni-dept-website:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/smart-club:latest
