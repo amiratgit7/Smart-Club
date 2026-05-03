@@ -45,7 +45,7 @@ jobs:
         run: npm run lint:css
 
   build_and_docker:
-     name: Build + Docker Build & Push
+    name: Build + Docker Build & Push
     runs-on: ubuntu-latest
     needs: lint_css
     steps:
@@ -72,6 +72,6 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v3
         with:
-         context: .
-         push: true
-         tags: ${{ secrets.DOCKERHUB_USERNAME }}/smart-club:latest
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/smart-club:latest
