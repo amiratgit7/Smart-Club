@@ -5,7 +5,7 @@ on:
     branches:
       - main
       - dev
-      - feature/**
+      - feature/*
 jobs:
   lint_html:
     name: HTMLHint Lint
