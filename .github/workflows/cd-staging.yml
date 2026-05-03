@@ -17,10 +17,10 @@ jobs:
     steps:
       - name: Deploy to Render QA
         run: |
-          if [ -z "${{ secrets.RENDER_CALLBACK_URL }}" ]; then
-            echo "::error::Secret RENDER_CALLBACK_URL is empty or missing!"
+          if [ -z "${{ secrets.RENDER_CALLBACK_URL_QA }}" ]; then
+            echo "::error::Secret RENDER_CALLBACK_URL_QA is empty or missing!"
             exit 1
           fi
 
           echo "Triggering Render deploy for QA..."
-          curl -X POST ${{ secrets.RENDER_CALLBACK_URL }}
+          curl -X POST ${{ secrets.RENDER_CALLBACK_URL_QA }}
